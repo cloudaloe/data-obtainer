@@ -1,4 +1,3 @@
-/target
 /lib
 /classes
 /checkouts
@@ -10,3 +9,4 @@ pom.xml
 .lein-plugins
 /obsolete
 Notepad++*.*
+*.csv
