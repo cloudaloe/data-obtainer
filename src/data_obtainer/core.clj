@@ -10,7 +10,7 @@
 
 	(println "~ Clojure program starting ~" \newline)
 	  
-	(with-open [rdr (io/reader "hello.txt")]
+	#_(with-open [rdr (io/reader "resources/hello.txt")]
 		(doseq [line (line-seq rdr)]
 			(println line)))
 
