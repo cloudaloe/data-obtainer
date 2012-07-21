@@ -1,4 +1,4 @@
-time# data-obtainer
+# data-obtainer
 
 Application for obtaining growth-over-info for a MySQL cluster.
 Prerequisites separately installing a MySQL JDBC driver suitable for the MySQL databases at hand.
