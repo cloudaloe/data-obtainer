@@ -20,7 +20,7 @@ It's OK to change the configuration in between runs.
 
 ## Usage
 
-Each run of this program captures and appends the __current__ state for the databases defined to it at databases/databases.cfg. Information is time-stamped as UTC time. 
+Each run of this program captures and __appends the current__ state for the databases defined to it at databases/databases.cfg. Information is time-stamped as UTC time. 
 To run this program, CD to the directory containing this project's jar, and run: 
 
 _java -classpath "data-obtainer-0.1.0-SNAPSHOT-standalone.jar;mysql-connector-java-5.1.21-bin.jar" clojure.main -m data-obtainer.core > out.log_
