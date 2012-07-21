@@ -3,12 +3,12 @@
 Application for obtaining growth-over-time info for a MySQL cluster.
 Prerequisites separately installing a MySQL JDBC driver suitable for the MySQL databases at hand.
 
-### License
+## License
 
 Copyright © 2012 Matan Safriel.
 Distributed under the Eclipse Public License, the same as Clojure.
 
-### Setup & Configuration
+## Setup & Configuration
 
 This program connects to MySQL using JDBC. Due to licensing limitations, it is not enough to install this program. The MySQL Connector/J JDBC driver should be separately obtained as we are not allowed to ship it.  This driver can be typically downloaded from http://dev.mysql.com/downloads/connector/j/. For straightforward invocation, the MySQL Connector/J jar file should be placed in the same directory as this project's jar file. (Otherwise, please modify the classpath to include that jar if placed elsewhere).
 
