@@ -14,16 +14,16 @@ This program connects to MySQL using JDBC. Due to licensing limitations, the MyS
 
 #### Configuration
 
-Databases/databases.cfg should contain all configuration data, one clause per MySQL server.
+Databases/databases.cfg should contain all configuration data, one clause per MySQL instance.
 For making the initial configuration, contact the author of this program for a sample. 
 It's OK to change the configuration in between runs.
 
 ## Usage
 
-Each run of this program captures and __appends the current__ state for the databases defined to it at databases/databases.cfg. Information is time-stamped as UTC time. 
+Each run of this program captures and appends the current state for the databases defined to it at databases/databases.cfg. Information is time-stamped as UTC time. 
 To run this program, CD to the directory containing this project's jar, and run: 
 
 _java -classpath "data-obtainer-0.1.0-SNAPSHOT-standalone.jar;mysql-connector-java-5.1.21-bin.jar" clojure.main -m data-obtainer.core > out.log_
 
 It captures the current state from all defined servers and appends it to the data store (currently a simple CSV file). 
-View the accumulated data in data.csv. If using Excel, make sure to make a copy as opening it in Excel will block accumulation of more data. It's OK to delete this file for starting fresh. 
+View the accumulated data in _data.csv_. If using Excel, make sure to make a copy as opening it in Excel will block accumulation of more data. It's OK to delete this file for starting fresh. 
