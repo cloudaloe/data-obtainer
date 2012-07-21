@@ -20,10 +20,10 @@ It's OK to change the configuration in between runs.
 
 ## Usage
 
-Each run of this program captures and appends the current state for the databases defined to it at databases/databases.cfg. 
-To run it, CD to the directory containing this project's jar, and run: 
+Each run of this program captures and appends the __current__ state for the databases defined to it at databases/databases.cfg. Information is time-stamped as UTC time. 
+To run this program, CD to the directory containing this project's jar, and run: 
 
 _java -classpath "data-obtainer-0.1.0-SNAPSHOT-standalone.jar;mysql-connector-java-5.1.21-bin.jar" clojure.main -m data-obtainer.core > out.log_
 
-It captures the current status from all defined servers and appends it to the data store (currently a simple CSV file). Data is time-stamped as UTC time.
+It captures the current state from all defined servers and appends it to the data store (currently a simple CSV file). 
 View the accumulated data in data.csv. If using Excel, make sure to make a copy as opening it in Excel will block accumulation of more data. It's OK to delete this file for starting fresh. 
