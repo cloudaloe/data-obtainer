@@ -10,7 +10,7 @@ Distributed under the Eclipse Public License, the same as Clojure.
 
 ## Setup & Configuration
 
-This program connects to MySQL using JDBC. Due to licensing limitations, the MySQL Connector/J JDBC driver should be separately obtained as we are not allowed to ship it.  This driver can be typically downloaded from http://dev.mysql.com/downloads/connector/j/. For straightforward invocation, the MySQL Connector/J jar file should be placed in the same directory as this project's jar file. (Otherwise, please modify the classpath to include that jar if placed elsewhere).
+This program connects to MySQL using JDBC. Due to licensing limitations, the MySQL Connector/J JDBC driver should be separately obtained, as we are not allowed to ship it. This driver can be typically downloaded from http://dev.mysql.com/downloads/connector/j/. After obtaining the MySQL Connector/J jar file, it should be placed in the same directory as this project's jar file. (Otherwise, please modify the classpath to include that jar if placed elsewhere).
 
 #### Configuration
 
