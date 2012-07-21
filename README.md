@@ -1,6 +1,6 @@
-# data-obtainer
+time# data-obtainer
 
-Application for obtaining growth-over-time info for a MySQL cluster.
+Application for obtaining growth-over-info for a MySQL cluster.
 Prerequisites separately installing a MySQL JDBC driver suitable for the MySQL databases at hand.
 
 ## License
@@ -25,5 +25,5 @@ To run it, CD to the directory containing this project's jar, and run:
 
 _java -classpath "data-obtainer-0.1.0-SNAPSHOT-standalone.jar;mysql-connector-java-5.1.21-bin.jar" clojure.main -m data-obtainer.core > out.log_
 
-This captures the current status from all defined servers and appends it to the data store (currently a simple CSV file). Data is timestamped as UTC time.
+This captures the current status from all defined servers and appends it to the data store (currently a simple CSV file). Data is time-stamped as UTC time.
 View the accumulated data in data.csv. If using Excel, make sure to make a copy as opening it in Excel will block accumulation of more data. It's OK to delete this file for starting fresh. 
