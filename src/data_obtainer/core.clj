@@ -9,6 +9,8 @@
 (defn -main [& args]
 
 	(println "~ Clojure program starting ~" \newline)
+	
+	(println (java.sql.Timestamp. (.getTime (java.util.Date.))))
 	  
 	#_(with-open [rdr (io/reader "resources/hello.txt")]
 		(doseq [line (line-seq rdr)]

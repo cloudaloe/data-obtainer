@@ -1,8 +1,0 @@
-This program connects to MySQL using JDBC. Due to licensing limitations, it is not enough to install this program. The MySQL Connector/J JDBC driver should be downloaded and its jar file added to this program's CLASSPATH. The driver can be typically downloaded from http://dev.mysql.com/downloads/connector/j/. 
-
-Setup:
-
-1. Obtain the above mentioned jar file.
-2. Place it in the same directory as the data-obtainer jar.
-3. CD to that directory
-4. Run: java -cp "data-obtainer-0.1.0-SNAPSHOT-standalone.jar;mysql-connector-java-5.1.21-bin.jar" clojure.main -m data-obtainer.core
