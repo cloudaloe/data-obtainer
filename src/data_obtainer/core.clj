@@ -13,12 +13,12 @@
 
 (defn -main [& args]
 
-	(println "~ Clojure program starting " (java.sql.Timestamp. (.getTime (java.util.Date.))) "~" \newline)
+	(println (str \newline "Clojure program starting (" (java.sql.Timestamp. (.getTime (java.util.Date.))) ")." \newline))
 			
 	(def configurations (read-string (slurp "databases/databases.cfg"))) ;TBA: confirming the configuration
 
 	(let [f (File. out-file-path)]
-		(if (.exists f) (println "Output file found") (dorun (csv-init))))
+		(if (.exists f) (println "Output file found.") (dorun (csv-init))))
 	
 	(doall (map obtain configurations))
 	
