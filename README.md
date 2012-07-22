@@ -28,9 +28,9 @@ This program needs to authenticate to MySQL. Unless MySQL authentication plugins
 ## Usage
 
 Each run of this program captures and appends the current state for all databases defined to it at databases/databases.cfg. 
-The data accumulates in a simple CSV file, named data.csv. Information is time-stamped as UTC time. It's OK to delete this file for cleaning up or starting a fresh accumulation. If using Excel to view it, make sure to only view a copy, as opening the original in Excel would block accumulation of more data. 
+The data accumulates in a simple CSV file, named data.csv. Information is time-stamped as UTC time. It's OK to delete this file for cleaning up or starting a fresh accumulation. If using Excel to view its content, make sure to only view a copy, as opening the original in Excel would block accumulation of more data. 
 
-To run this program, CD to the directory containing this project's jar, and run the following command (In case you've downloaded a differently named MySQL Connector/J driver, make sure to substitute its name in this command)
+To run this program, CD to the directory containing this project's jar, and run the following command (In case you've downloaded a differently named MySQL Connector/J driver, make sure to substitute its name in this command first)
 
 <code> java -classpath "data-obtainer.jar;mysql-connector-java-5.1.21-bin.jar" clojure.main -m data-obtainer.core > out.log </code>
 
