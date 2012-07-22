@@ -1,5 +1,13 @@
 (in-ns 'data-obtainer.core)
 
+(def fields [{:var-name 'time :human-name "Time"}
+			 {:var-name 'host :human-name "Host"}
+			 {:var-name 'database :human-name "Schema"}
+			 {:mysql-column "table_name" :human-name "Table Name"}
+			 {:mysql-column "table_rows" :human-name "Number of Rows"}
+			 {:mysql-column "data_length" :human-name "Data Size"}
+			 {:mysql-column "index_length" :human-name "Index Size"}])
+
 (defn obtain [configuration]
 	(let [{host :host port :port user :user database :database} configuration] 
 		(let [subname (str "//" host ":" port "/information_schema")] 
@@ -8,21 +16,21 @@
 					(try
 						(sql/with-connection mysql-conn
 							(sql/with-query-results rows
-								["select table_name 'table-name',
-								table_rows 'rows-num',
-								data_length 'data-length-GB',
-								index_length 'index-length-GB',
-								data_length+index_length 'total-GB' 
+								["select table_name,
+								table_rows,
+								data_length,
+								index_length
 								from information_schema.TABLES
 								where table_schema=?" database] 
 								(if rows 
-									(do (doseq [row rows] (println "Obtained metadata:" "host" host "schema" database "table" (:table-name row)))
+									(do (doseq [row rows] (println "Obtained metadata:" "host" host "schema" database "table" (:table_name row)))
 										(doseq [row rows] (writeline (str 
-											time "," 
-											(:table-name row) "," 
-											(:rows-num row) "," 
-											host 
-											\newline)))) 
+											time "," host "," database ","
+											(:table_name row) "," 
+											(:table_rows row) "," 
+											(:data_length row) ","
+											(:index_length row)
+									\newline)))) 
 									(println (str \newline "---" \newline "In MySQL, on host " host ", no metadata found for schema " database \newline "---" \newline))
 								)
 							)
