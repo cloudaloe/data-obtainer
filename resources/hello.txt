@@ -1,6 +1,0 @@
-This program attempts to pull meta-data from your MySQL databases.
-It attempts to pull meta-data for all databases supplied inside databases/databases.cfg. This implies that the network and databases should permit a connection using those connection details supplied there.
-
-In case this program fails to pull data from any database, please manually confirm that you are able to 1) Connect to that database using the connection parameters supplied in databases/databases.cfg and 2) That you are able to query table 'tables' under schema 'information_schema' after making the connection.
-
-

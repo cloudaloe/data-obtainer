@@ -9,7 +9,7 @@
 			 {:mysql-column "index_length" :human-name "Index Size"}])
 
 (defn obtain [configuration]
-	(let [{host :host port :port user :user database :database password :password} configuration] 
+	(let [{host :host port :port user :user schema :schema password :password} configuration] 
 		(let [subname (str "//" host ":" port "/information_schema")] 
 			(let [mysql-conn {:subprotocol "mysql" :subname subname :user user :password password}] 
 				(let [time (java.sql.Timestamp. (.getTime (java.util.Date.)))] ; a(. System (nanoTime)) based timestamping implementation or no-system call service can be considered
@@ -21,17 +21,17 @@
 								data_length,
 								index_length
 								from information_schema.TABLES
-								where table_schema=?" database] 
+								where table_schema=?" schema] 
 								(if rows 
-									(do (doseq [row rows] (println "Obtained metadata for:" "host" host "schema" database "table" (:table_name row) "."))
+									(do (doseq [row rows] (println "Obtained metadata for:" "host" host "schema" schema "table" (:table_name row) "."))
 										(doseq [row rows] (writeline (str 
-											time "," host "," database ","
+											time "," host "," schema ","
 											(:table_name row) "," 
 											(:table_rows row) "," 
 											(:data_length row) ","
 											(:index_length row)
 									\newline)))) 
-									(println (str \newline "--- warning ---" \newline "In MySQL, on host " host ", no metadata obtained for schema " database \newline "---------------" \newline))
+									(println (str \newline "--- warning ---" \newline "In MySQL, on host " host ", no metadata obtained for schema " schema \newline "---------------" \newline))
 								)
 							)
 						)
