@@ -32,7 +32,7 @@ The data accumulates in a simple CSV file, named data.csv. Information is time-s
 
 To run this program, CD to the directory containing this project's jar, and run the following command (In case you've downloaded a differently named MySQL Connector/J driver, make sure to substitute its name in this command first)
 
-<code> java -classpath "data-obtainer.jar;mysql-connector-java-5.1.21-bin.jar" clojure.main -m data-obtainer.core > out.log </code>
+<code> java -classpath "data-obtainer.jar;mysql-connector-java-5.1.21-bin.jar" clojure.main -m data-obtainer.core </code>
 
 
 
