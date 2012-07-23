@@ -3,8 +3,9 @@
 ; Each database has its own {} clause, you can have as many as you like.
 ; You need both the network (firewall) and MySQL to permit access from the server where this is running.
 ;
-; FOR GETTING STARTED, start with just one or two databases. You can later freely add or change as you like, without any necessary ceremony.
-; Although the program will inform you of connection problem details if any, it would make sense to first manually test the connection. 
+; FOR GETTING STARTED, start with just one or two databases. You can later freely add or change as you like.
+; Although the program will inform you of connection problem details if any, 
+; it would make sense to first manually test the connection. 
 ;
 
 [
