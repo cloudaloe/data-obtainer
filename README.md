@@ -19,7 +19,7 @@ For making the initial configuration, contact the author of this program for a s
 It's OK to change the configuration in between runs.
 
 ### Prerequisite Permissions (MySQL)
-To pull metadata, information_schema access for the relevant schema is necessary. This can only be accomplished by providing read access to the database schema. E.g. by using:
+To pull metadata, information_schema access for the relevant schema is necessary. This can only be accomplished by providing read access to the database schema of interest. E.g. by using:
 <code> GRANT SELECT ON db-name.* TO user-name; </code>  whereas if desired, a new MySQL user can first be defined for this program, e.g. via <code> CREATE USER user-name IDENTIFIED BY 'password'; </code>. 
 
 ### Security Considerations (Operating System)
@@ -28,7 +28,7 @@ This program needs to authenticate to MySQL. Unless MySQL authentication plugins
 ## Usage
 
 Each run of this program captures and appends the current state for all databases defined to it at databases/databases.cfg. 
-The data accumulates in a simple CSV file, named data.csv. Information is time-stamped as UTC time. It's OK to delete this file for cleaning up or starting a fresh accumulation. If using Excel to view its content, make sure to only view a copy, as opening the original in Excel would block accumulation of more data. 
+The data accumulates in a simple CSV file, named data.csv. Information is time-stamped with the local time. It's OK to delete this file for cleaning up or starting a fresh accumulation. If using Excel to view its content, make sure to only view a copy, as opening the original in Excel would block accumulation of more data. 
 
 To run this program, CD to the directory containing this project's jar, and run the following command (In case you've downloaded a differently named MySQL Connector/J driver, make sure to substitute its name in this command first)
 
