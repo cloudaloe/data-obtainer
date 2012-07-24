@@ -6,7 +6,7 @@ Prerequisites separately installing a MySQL JDBC driver suitable for the MySQL d
 ## License
 
 Copyright © 2012 Matan Safriel.
-Distributed under the Eclipse Public License, the same as Clojure.
+Distributed under the Eclipse Public License 1.0, the same as Clojure.
 
 ## Setup & Configuration
 
