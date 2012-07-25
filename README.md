@@ -12,7 +12,7 @@ This application redistributes the MySQL Connector/J JDBC driver under the Oracl
 ## Setup & Configuration
 
 ### Configuration
-Databases/databases.cfg should contain all configuration data, one clause per MySQL instance.
+Databases/databases.cfg should contain all configuration data, one clause per MySQL database.
 For making the initial configuration, [see here] (https://github.com/cloudaloe/data-obtainer/blob/master/sample%20configuration/databases/databases.cfg).
 It's OK to change the configuration in between runs.
 
