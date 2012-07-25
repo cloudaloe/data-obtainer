@@ -11,5 +11,5 @@ pom.xml
 /dist*
 /databases
 *.csv
-/obsolete
+/obsolete*
 Notepad++*.*
