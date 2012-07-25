@@ -8,7 +8,7 @@ pom.xml
 .lein-failures
 .lein-plugins
 /target
-/distribution
+/dist*
 /databases
 *.csv
 /obsolete

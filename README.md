@@ -1,17 +1,15 @@
 # Data-obtainer
 
 Application for obtaining growth-over-time info for a MySQL cluster.
-Prerequisites separately installing a MySQL JDBC driver suitable for the MySQL databases at hand.
+This application requires a java runtime being available.
 
 ## License
 
 Copyright © 2012 Matan Safriel.
 Distributed under the Eclipse Public License 1.0, the same as Clojure.
+This application redistributes the MySQL Connector/J JDBC driver under the Oracle FOSS License Exception.
 
 ## Setup & Configuration
-
-### Obtaining the MySQL Connector/J JDBC driver
-This program connects to MySQL using JDBC. Due to licensing limitations, the MySQL Connector/J JDBC driver should be separately obtained, as we are not allowed to ship it. This driver can be typically downloaded from http://dev.mysql.com/downloads/connector/j/. After obtaining the MySQL Connector/J jar file, it should be placed in the same directory as this project's jar file. (Otherwise, if placed elsewhere, please make the classpath include that jar wherever you have placed it).
 
 ### Configuration
 Databases/databases.cfg should contain all configuration data, one clause per MySQL instance.
@@ -30,9 +28,8 @@ This program needs to authenticate to MySQL. Unless MySQL authentication plugins
 Each run of this program captures and appends the current state for all databases defined to it at databases/databases.cfg. 
 The data accumulates in a simple CSV file, named data.csv. Information is time-stamped with the local time. It's OK to delete this file for cleaning up or starting a fresh accumulation. If using Excel to view its content, make sure to only view a copy, as opening the original in Excel would block accumulation of more data. 
 
-To run this program, CD to the directory containing this project's jar, and run the following command (In case you've downloaded a differently named MySQL Connector/J driver, make sure to substitute its name in this command first)
-
-<code> java -classpath "data-obtainer.jar;mysql-connector-java-5.1.21-bin.jar" clojure.main -m data-obtainer.core </code>
+Download [here] (https://github.com/downloads/cloudaloe/data-obtainer/data-obtainer.zip), unzip and open a command-line at the directory.
+Execute: <code> java -jar data-obtainer.jar </code>
 
 
 
