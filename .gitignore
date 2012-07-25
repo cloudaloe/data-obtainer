@@ -7,6 +7,9 @@ pom.xml
 .lein-deps-sum
 .lein-failures
 .lein-plugins
+/target
+/distribution
+/databases
+*.csv
 /obsolete
 Notepad++*.*
-*.csv
