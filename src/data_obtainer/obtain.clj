@@ -10,7 +10,7 @@
 
 (defn obtain [configuration]
 	(let [{:keys [host port schema user password]} configuration] 
-		(let [subname (str "//" host ":" port "/information_schema?profileSQL=true")] 
+		(let [subname (str "//" host ":" port "/information_schema")] 
 			(let [mysql-conn {:subprotocol "mysql" :subname subname :user user :password password}] 
 				(let [time (java.sql.Timestamp. (.getTime (java.util.Date.)))] ; a(. System (nanoTime)) based timestamping implementation or no-system call service can be considered
 					(try
