@@ -9,8 +9,8 @@
 			 {:mysql-column "index_length" :human-name "Index Size"}])
 
 (defn obtain [configuration]
-	(let [{host :host port :port user :user schema :schema password :password} configuration] 
-		(let [subname (str "//" host ":" port "/information_schema")] 
+	(let [{:keys [host port schema user password]} configuration] 
+		(let [subname (str "//" host ":" port "/information_schema?profileSQL=true")] 
 			(let [mysql-conn {:subprotocol "mysql" :subname subname :user user :password password}] 
 				(let [time (java.sql.Timestamp. (.getTime (java.util.Date.)))] ; a(. System (nanoTime)) based timestamping implementation or no-system call service can be considered
 					(try
@@ -23,7 +23,7 @@
 								from information_schema.TABLES
 								where table_schema=?" schema] 
 								(if rows 
-									(do (doseq [row rows] (println "Obtained metadata for:" "host" host "schema" schema "table" (:table_name row) "."))
+									(do (doseq [row rows] (println (str "Obtained metadata for:" " host " host " schema " schema " table " (:table_name row) ".")))
 										(doseq [row rows] (writeline (str 
 											time "," host "," schema ","
 											(:table_name row) "," 
@@ -31,8 +31,8 @@
 											(:data_length row) ","
 											(:index_length row)
 									\newline)))) 
-									(println (str \newline "--- warning ---" \newline "In MySQL, on host " host ", no metadata obtained for schema " schema \newline "---------------" \newline))
+									(println (str \newline "--- Warning:" \newline "In MySQL, on host " host ", no metadata obtained for schema " schema \newline "------------" \newline))
 								)
 							)
 						)
-						(catch Exception e (println (str \newline "--- warning ---" \newline "Could not query one MySQL database for table sizes." \newline "Attempted connection map was: " \newline mysql-conn "." \newline "Source configuration was:" \newline configuration \newline "Exception encountered:" \newline e \newline "---------------" \newline)))))))))	
+						(catch Exception e (println (str \newline "--- Warning:" \newline "Could not query one MySQL database for table sizes." \newline "Attempted connection map was: " \newline mysql-conn "." \newline "Source configuration was:" \newline configuration \newline "Exception encountered:" \newline e \newline "------------" \newline)))))))))	

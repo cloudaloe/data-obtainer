@@ -13,17 +13,24 @@
 
 (defn -main [& args]
 
-	(println (str \newline "Clojure program starting (" (java.sql.Timestamp. (.getTime (java.util.Date.))) ")." \newline))
-			
-	(def configurations (read-string (slurp "databases/databases.cfg"))) ;TBA: confirming the configuration
+	(println (str \newline "Clojure program starting " (java.sql.Timestamp. (.getTime (java.util.Date.))) "."))
+	
+	; detect configuration, from default location or command line argument
+	(let [[first-arg] args]
+		(if (nil? first-arg) (def databases "databases/databases.cfg") (def databases (str "databases/" first-arg))))
+			(println (str "Using databases configuration file " databases "."))
+	
+	(def configurations (read-string (slurp databases))) ;TBA: confirming the configuration
 
 	(let [f (File. out-file-path)]
 		(if (.exists f) (println "Output file found.") (dorun (csv-init))))
-	
+
+	(println)
+		
 	(doall (map obtain configurations))
 	
 	nil
 )
 
 ; TBA: announcing the amount of servers, databases, or likewise
-; TBA: interface for indicating progress
+; TBA: better-than-stdout interface for indicating progress
