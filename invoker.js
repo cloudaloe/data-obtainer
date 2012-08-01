@@ -1,5 +1,6 @@
 //
 // New module for UI leaden management - not stable and should not be run other than for development
+// Launch on command prompt: node invoker.js
 //
 
 var http = require('http');
