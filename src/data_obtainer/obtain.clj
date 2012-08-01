@@ -36,4 +36,4 @@
 					)
 				)
 			)
-			(catch Exception e (println (str \newline "--- Warning:" \newline "Could not query one MySQL database for table sizes." \newline "Attempted connection map was: " \newline mysql-conn "." \newline "Source configuration was:" \newline configuration \newline "Exception encountered:" \newline e \newline "------------" \newline))))))))))	
+			(catch Exception e (println (str \newline "--- Warning:" \newline "Could not query one MySQL database for table sizes." \newline "Source configuration was:" \newline configuration \newline "Attempted connection map was: " \newline mysql-conn "." \newline \newline "Exception encountered:" \newline e \newline "------------" \newline))))))))))	
