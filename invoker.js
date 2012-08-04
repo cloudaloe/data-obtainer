@@ -1,11 +1,11 @@
 //
 // New module for UI leaden management - not stable and should not be run other than for development
-// Launch on command prompt: node invoker.js
+// Launches on the command prompt through entering: node invoker.js
 //
 
 var http = require('http');
+var fs = require('fs');
 var agentRunning=false;
-
 
 //try later to incorporate this library
 //var nodetime = require('nodetime');
@@ -18,6 +18,24 @@ http.createServer(function (request, response) {
 	if (request.method == 'GET') 
 		switch(request.url)
 		{
+			case '/': 
+				// serves the html page to the browser
+				// need to cache the file more intelligently for scalability
+				// nice to have: log the specific error on the server-side
+				fs.readFile('./main.html', function(error, content) {
+					if (error) {
+						response.writeHead(500);
+						response.end("Error: could not load main page");
+						// this assumes the browser does not need to obtain any css or js referenced in the html.
+						// for now that is the case. Otherwise see basic snippets at 
+						// http://thecodinghumanist.com/blog/archives/2011/5/6/serving-static-files-from-node-js
+					}
+					else {
+						response.writeHead(200, { 'Content-Type': 'text/html' });
+						response.end(content, 'utf-8');
+					}
+				});
+				break;
 			case '/run':
 				response.writeHead(200, {'Content-Type': 'text/plain'});
 				response.write('Running the agent....');				
@@ -25,7 +43,7 @@ http.createServer(function (request, response) {
 				break;
 			default:
 				response.writeHead(200, {'Content-Type': 'text/plain'});	
-				response.end('Welcome to the Uber Agent....');	
+				response.end('Oops, the requested page was not found....');	
 		}	
 }).listen(1337, '127.0.0.1');
 
