@@ -12,4 +12,6 @@ pom.xml
 /databases
 *.csv
 /obsolete*
+/output samples
+/roadmaps
 Notepad++*.*
